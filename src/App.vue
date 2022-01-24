@@ -1,32 +1,31 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">Conversations</router-link> |
+      <router-link to="/membres">Membres</router-link> |
+      <router-link to="/creationcompte">Création de compte</router-link> |
+      <router-link to="/connexion">Se connecter</router-link>
     </div>
+    <h1 id="appTitle">Projet COOP</h1>
     <router-view/>
   </div>
 </template>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+export default{
+  name : 'App',
+  mounted(){
+    this.$api.get('ping');
+    if(!this.$store.state.token){
+      this.$router.push('connexion');
     }
   }
 }
+</script>
+<style lang="scss" scoped>
+  h1{
+    text-align: center;
+  }
+  #nav{
+    text-align: center;
+  }
 </style>
