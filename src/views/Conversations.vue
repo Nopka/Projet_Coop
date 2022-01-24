@@ -7,7 +7,7 @@
           <router-link to="creationconversation">
                <button class="btn btn-primary">Créer une conversations </button>
           </router-link>
-          <div class="listeConv" v-for="conversation in conversations">
+          <div class="listeConv" v-for="conversation in conversations" :key="conversation.id">
                <div class="card" style="width: 100%;">
                     <div class="card-body">
                          <h5 class="card-title">{{conversation.topic}}</h5>
