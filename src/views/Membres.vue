@@ -1,13 +1,14 @@
 <template>
   <div>
      <h1>Liste des Membres</h1>
-     <div class="listeMembres" v-for="membre in membres" :key="membre.id">
-          <div class="card" style="width: 100%;" >
-               <div class="card-body">
+     <div class="listeMembres" v-for="membre in $store.state.membres" :key="membre.id">
+          <div class="card" style="width: 100%;">
+               <router-link :to="{name:'UnMembre',params:{id: membre.id}}" class="nav-link">
+                    <div class="card-body">
                     <h5 class="card-title">{{membre.fullname}}</h5>
                     <p class="card-text">{{membre.id}}</p>
-                    <button class="btn btn-info">Informations</button>
                </div>
+               </router-link>
           </div>
      </div>
   </div>
@@ -16,15 +17,10 @@
 <script>
 export default {
      name:"Membres",
-     data(){
-          return{
-               membres:[],
-          }
-     },
      mounted(){
           this.$api.get("members")
                .then((response) => {
-                    this.membres = response.data;
+                    this.$store.commit('setMembres',response.data);
                })
      }
 }

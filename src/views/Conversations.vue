@@ -12,7 +12,6 @@
                     <div class="card-body">
                          <h5 class="card-title">{{conversation.topic}}</h5>
                          <p class="card-text">{{conversation.label}}</p>
-                         <button class="btn btn-secondary">Entrez</button>
                     </div>
                </div>
           </div>

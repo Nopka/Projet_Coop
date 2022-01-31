@@ -12,7 +12,8 @@ export default new Vuex.Store({
   plugins:[vuexLocal.plugin],
   state: {
     token : '',
-    member : false
+    member : false,
+    membres:[]
   },
   mutations: {
     setToken(state, token){
@@ -20,6 +21,9 @@ export default new Vuex.Store({
     },
     setMember(state, member){
       state.member = member
+    },
+    setMembres(state, membres){
+      state.membres = membres
     }
   },
   actions: {

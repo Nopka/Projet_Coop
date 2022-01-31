@@ -1,19 +1,13 @@
 <template>
   <div id="app">
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <router-link to="/" class="nav-link active" aria-current="page">Conversations</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link to="/membres" class="nav-link" aria-current="page">Membres</router-link> 
-      </li>
-      <li class="nav-item">
-        <router-link to="/creationcompte" class="nav-link" aria-current="page">Création de compte</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link to="/connexion" class="nav-link" aria-current="page">Se connecter</router-link>
-      </li>
-    </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <router-link to="/" class="btn btn-light" aria-current="page">Conversations</router-link>
+        <router-link to="/membres" class="btn btn-light" aria-current="page">Membres</router-link> 
+        <router-link to="/creationcompte" class="btn btn-light" aria-current="page">Création de compte</router-link>
+        <router-link to="/connexion" class="btn btn-light" aria-current="page">Se connecter</router-link>
+      </div>
+    </nav>
     <h1 id="appTitle">Projet COOP</h1>
     <router-view/>
   </div>

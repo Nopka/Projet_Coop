@@ -1,17 +1,19 @@
 <template>
   <div>
      <h1>Création d'une conversation</h1>
-     <form @submit.prevent="validation()">
-          <div>
-               <label>Titre : </label>
-               <input type="text" required v-model="topic"/>
-          </div>
-          <div>
-               <label>Description : </label>
-               <input type="text" required v-model="label"/>
-          </div>
-          <button>Créer la conversation</button>
-     </form>
+     <div class="form">
+          <form @submit.prevent="validation()">
+               <div class="mb-3">
+                    <label class="form-label">Titre : </label>
+                    <input type="text" required v-model="topic" class="form-control"/>
+               </div>
+               <div class="mb-3">
+                    <label class="form-label">Description : </label>
+                    <input type="text" required v-model="label" class="form-control"/>
+               </div>
+               <button class="btn btn-primary">Créer la conversation</button>
+          </form>
+     </div>
   </div>
 </template>
 
@@ -43,6 +45,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+     .form{
+          width: 40%;
+          margin-left: auto;
+          margin-right: auto;
+     }
 </style>
