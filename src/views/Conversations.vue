@@ -7,28 +7,25 @@
           <router-link to="creationconversation">
                <button class="btn btn-primary">Créer une conversations </button>
           </router-link>
-          <div class="listeConv" v-for="conversation in conversations" :key="conversation.id">
-               <div class="card" style="width: 100%;">
-                    <div class="card-body">
-                         <h5 class="card-title">{{conversation.topic}}</h5>
-                         <p class="card-text">{{conversation.label}}</p>
+          <div class="listeConv" v-for="conversation in $store.state.conversations" :key="conversation.id">
+               <router-link :to="{name:'UneConversation',params:{id: conversation.id}}" class="nav-link">
+                    <div class="card" style="width: 100%;">
+                         <div class="card-body">
+                              <h5 class="card-title">{{conversation.topic}}</h5>
+                              <p class="card-text">{{conversation.label}}</p>
+                         </div>
                     </div>
-               </div>
+               </router-link>
           </div>
      </div>
 </template>
 <script>
      export default {
           name: "Conversations",
-          data(){
-               return {
-                    conversations:[],
-               }
-          },
           mounted(){
                this.$api.get("channels")
                     .then((response) => {
-                         this.conversations = response.data;
+                         this.$store.commit('setConversations',response.data);
                     })
           }
      }
