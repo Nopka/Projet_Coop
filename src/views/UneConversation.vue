@@ -1,6 +1,6 @@
 <template>
      <div>
-          {{idConv}}
+          <u>Id Conversation :</u> {{idConv}}
           <h1><u>Topic :</u> {{topicConv}}</h1>
           <h2><u>Label :</u> {{labelConv}}</h2>
           <form @submit.prevent="posterMessage()">
@@ -13,7 +13,7 @@
           <div v-for="message in messagesConv" :key="message.id">
                <div class="card">
                     <div class="card-header">
-                         {{nomMembre(message.member_id)}} à écrit :
+                         {{nomMembre(message.member_id)}} {{NomMembre}} à écrit :
                     </div>
                     <div class="card-body">
                          {{message.message}}
@@ -32,7 +32,8 @@ export default {
                messagesConv : [],
                labelConv : '',
                topicConv : '',
-               MessageToSend : ''
+               MessageToSend : '',
+               NomMembre : 'Utilisateur Inconnu'
           }
      },
      mounted(){
@@ -59,10 +60,10 @@ export default {
                          console.log(response.data.message)
                     });
           },
-          nomMembre(idMembre){
+          nomMembre(idMembreDonne) {
                this.$store.state.membres.forEach(membre => {
-                    if (membre.id == idMembre) {
-                         return membre.fullname;
+                    if (membre.id == idMembreDonne) {
+                         this.NomMembre = membre.fullname
                     }
                });
           }
