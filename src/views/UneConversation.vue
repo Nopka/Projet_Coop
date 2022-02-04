@@ -13,7 +13,10 @@
           <div v-for="message in messagesConv" :key="message.id">
                <div class="card">
                     <div class="card-header">
-                         {{nomMembre(message.member_id)}} {{NomMembre}} à écrit :
+                         <router-link :to="{name:'UnMembre',params:{id: message.member_id}}">
+                              {{ nomMembre(message.member_id) }} 
+                         </router-link> à écrit :
+                         
                     </div>
                     <div class="card-body">
                          {{message.message}}
@@ -61,11 +64,13 @@ export default {
                     });
           },
           nomMembre(idMembreDonne) {
+               let nom = 'Utilisateur Inconnu'
                this.$store.state.membres.forEach(membre => {
                     if (membre.id == idMembreDonne) {
-                         this.NomMembre = membre.fullname
+                         nom = membre.fullname
                     }
                });
+               return nom;
           }
      }
 }
