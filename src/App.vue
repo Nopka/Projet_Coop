@@ -6,6 +6,7 @@
         <router-link to="/membres" class="btn btn-light" aria-current="page">Membres</router-link> 
         <router-link to="/creationcompte" class="btn btn-light" aria-current="page">Création de compte</router-link>
         <router-link to="/connexion" class="btn btn-light" aria-current="page">Se connecter</router-link>
+        <router-link to="/deconnexion" class="btn btn-danger" aria-current="page">Se deconnecter</router-link>
       </div>
     </nav>
     <h1 id="appTitle">Projet COOP</h1>

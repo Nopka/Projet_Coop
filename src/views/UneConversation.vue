@@ -3,7 +3,7 @@
           <u>Id Conversation :</u> {{idConv}}
           <h1><u>Topic :</u> {{topicConv}}</h1>
           <h2><u>Label :</u> {{labelConv}}</h2>
-          <form @submit.prevent="posterMessage()">
+          <form @submit.prevent="posterMessage">
                <div class="input-group mb-3">
                     <input type="text" required v-model="MessageToSend"  placeholder="Message à poster" class="form-control" aria-describedby="button-addon2"/>
                     <button class="btn btn-success" id="button-addon2">Envoyer</button>
@@ -45,10 +45,7 @@ export default {
                     this.idConv = conversation.id;
                     this.topicConv = conversation.topic;
                     this.labelConv = conversation.label;
-                    this.$api.get("channels/"+conversation.id+"/posts")
-                         .then((response) => {
-                              this.messagesConv = response.data;
-                         })
+                    this.getMessages(this.idConv);
                }
           });
      },
@@ -60,7 +57,7 @@ export default {
                this.$api
                     .post("channels/"+this.idConv+"/posts",donnees)
                     .then((response) => {
-                         console.log(response.data.message)
+                         this.getMessages(this.idConv);
                     });
           },
           nomMembre(idMembreDonne) {
@@ -71,6 +68,12 @@ export default {
                     }
                });
                return nom;
+          },
+          getMessages(id){
+               this.$api.get("channels/"+id+"/posts")
+                         .then((response) => {
+                              this.messagesConv = response.data;
+                         })
           }
      }
 }

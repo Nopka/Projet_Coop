@@ -38,8 +38,12 @@ const routes = [
     path: '/conversation/:id',
     name: 'UneConversation',
     component: () => import('../views/UneConversation.vue')
+  },
+  {
+    path: '/deconnexion',
+    name: 'Deconnexion',
+    component: () => import('../views/SeDeconnecter.vue')
   }
-  
 ]
 
 const router = new VueRouter({
