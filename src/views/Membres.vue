@@ -1,5 +1,6 @@
 <template>
   <div>
+     <Navigation/>
      <h1>Liste des Membres</h1>
      <div class="listeMembres" v-for="membre in $store.state.membres" :key="membre.id">
           <div class="card" style="width: 100%;">
@@ -15,8 +16,12 @@
 </template>
 
 <script>
+import Navigation from "../components/Navigation.vue"
 export default {
      name:"Membres",
+     components:{
+          Navigation
+     },
      mounted(){
           this.$api.get("members")
                .then((response) => {

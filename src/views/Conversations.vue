@@ -1,5 +1,6 @@
 <template>
      <div>
+          <Navigation/>
           <h1>Liste des Conversations</h1>
           <p>
                Connecté en tant que <b>{{$store.state.member.fullname}}</b>
@@ -20,8 +21,12 @@
      </div>
 </template>
 <script>
+     import Navigation from "../components/Navigation.vue"
      export default {
           name: "Conversations",
+          components:{
+               Navigation
+          },
           mounted(){
                this.$api.get("channels")
                     .then((response) => {

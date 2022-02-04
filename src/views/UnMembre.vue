@@ -1,5 +1,6 @@
 <template>
   <div>
+     <Navigation/>
      <h1>Informations sur le membre : <b>{{nomMembre}}</b> </h1>
      <ul>
           <li>
@@ -17,8 +18,12 @@
 </template>
 
 <script>
+import Navigation from "../components/Navigation.vue"
 export default {
      name:"UnMembre",
+     components:{
+          Navigation
+     },
      data(){
           return{
                idMembre : '',

@@ -1,5 +1,6 @@
 <template>
      <div>
+          <Navigation/>
           <u>Id Conversation :</u> {{idConv}}
           <h1><u>Topic :</u> {{topicConv}}</h1>
           <h2><u>Label :</u> {{labelConv}}</h2>
@@ -27,8 +28,12 @@
 </template>
 
 <script>
+import Navigation from "../components/Navigation.vue"
 export default {
      name:"UneConversation",
+     components:{
+          Navigation
+     },
      data(){
           return{
                idConv : '',
