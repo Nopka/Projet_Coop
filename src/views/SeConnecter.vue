@@ -16,6 +16,7 @@
                     <button class="btn btn-primary">Valider</button>
                </form>
           </div>
+          <router-link to="/creationcompte" class="btn btn-warning" aria-current="page">Pas de compte ?</router-link>
      </div>
 </template>
 <script>
